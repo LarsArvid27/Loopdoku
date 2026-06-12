@@ -3,7 +3,9 @@ const COLLABORATORS = [
   { id: 'beele', name: 'Beéle', emoji: '🎤' },
   { id: 'rauw', name: 'Rauw Alejandro', emoji: '🎤' },
   { id: 'beyonce', name: 'Beyoncé', emoji: '👑' },
-  { id: 'carlos', name: 'Carlos Vives', emoji: '🎸' }
+  { id: 'carlos', name: 'Carlos Vives', emoji: '🎸' },
+  { id: 'shakira', name: 'Shakira', emoji: '👩' }
+
 ];
 
 const LOCATIONS = [
@@ -28,6 +30,7 @@ const CLUES = [
   "🌿 Rauw Alejandro estaba al lado de una planta",
   "🪞 Beyoncé era la única en una alfombra",
   "🚪 Carlos Vives estaba en la entrada"
+  "🎤 Shakira estaba a solas con su colab"
 ];
 
 const SOLUTION = {
