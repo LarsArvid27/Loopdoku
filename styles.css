@@ -100,10 +100,12 @@ main {
   text-align: center;
 }
 
-.cell:hover {
-  background: #f0f0f0;
-  border-color: var(--secondary-color);
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .cell:hover {
+    background: #f0f0f0;
+    border-color: var(--secondary-color);
+    transform: scale(1.05);
+  }
 }
 
 .cell.collaborator {
