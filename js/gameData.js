@@ -23,11 +23,11 @@ const SONGS = [
 ];
 
 const CLUES = [
-  "🪑 Maluma estaba en un sillón (chair)",
-  "📚 Beéle estaba en la biblioteca (library)",
-  "🌿 Rauw Alejandro estaba al lado de una planta (next to a plant)",
-  "🪞 Beyoncé era la única en una alcoba (alone in a corner)",
-  "🚪 Carlos Vives estaba en la entrada (entrance)"
+  "🪑 Maluma estaba en un sillón",
+  "📚 Beéle estaba en la biblioteca",
+  "🌿 Rauw Alejandro estaba al lado de una planta",
+  "🪞 Beyoncé era la única en una alfombra",
+  "🚪 Carlos Vives estaba en la entrada"
 ];
 
 const SOLUTION = {
