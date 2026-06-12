@@ -25,14 +25,28 @@ class GameState {
   }
 }
 
+// Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', () => {
-  const gameState = new GameState();
-  const ui = new GameUI(gameState);
-  ui.init();
+  try {
+    console.log('Starting game initialization...');
+    
+    // Check if CLUES is defined
+    if (typeof CLUES === 'undefined') {
+      console.error('CLUES is not defined!');
+      return;
+    }
+    
+    const gameState = new GameState();
+    const ui = new GameUI(gameState);
+    ui.init();
 
-  window.gameState = gameState;
-  window.ui = ui;
-  window.solver = new GameSolver(gameState);
-  
-  console.log('Loopdoku initialized!');
+    window.gameState = gameState;
+    window.ui = ui;
+    window.solver = new GameSolver(gameState);
+    
+    console.log('✅ Loopdoku initialized successfully!');
+  } catch (error) {
+    console.error('❌ Error initializing game:', error);
+    document.body.innerHTML = '<h1>Error loading game. Check console.</h1>';
+  }
 });
