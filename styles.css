@@ -162,7 +162,6 @@ main {
 
 .btn-primary:hover {
   background: #7a3fa0;
-  transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(139, 79, 184, 0.3);
 }
 
@@ -173,7 +172,6 @@ main {
 
 .btn-secondary:hover {
   background: #3a7f95;
-  transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(74, 159, 181, 0.3);
 }
 
@@ -184,7 +182,6 @@ main {
 
 .btn-success:hover {
   background: #1e8449;
-  transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
 }
 
