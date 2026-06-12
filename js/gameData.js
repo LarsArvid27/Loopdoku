@@ -33,9 +33,7 @@ const CLUES = [
   "🎤 Shakira estaba a solas con su colab"
 ];
 
-const SOLUTION = {
- answer: "Shakira está con Beyoncé"
-};
+const SOLUTION = "Shakira está con Beyoncé";
 
 const CONSTRAINTS = {
   uniqueRowColumn: true,
