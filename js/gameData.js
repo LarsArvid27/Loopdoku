@@ -9,11 +9,11 @@ const COLLABORATORS = [
 ];
 
 const LOCATIONS = [
-  { id: 'entrada', name: 'Entrada', emoji: '🚪', description: 'Entrance' },
-  { id: 'estudio', name: 'Estudio', emoji: '🎧', description: 'Studio' },
-  { id: 'terraza', name: 'Terraza', emoji: '🌿', description: 'Terrace' },
-  { id: 'snacks', name: 'Zona de Snacks', emoji: '🍕', description: 'Snack Zone' },
-  { id: 'biblioteca', name: 'Biblioteca', emoji: '📚', description: 'Library' }
+  { id: 'entrada', name: 'Entrada', emoji: '🚪', description: 'Entrada' },
+  { id: 'estudio', name: 'Estudio', emoji: '🎧', description: 'Estudio' },
+  { id: 'terraza', name: 'Terraza', emoji: '🌿', description: 'Terraza' },
+  { id: 'snacks', name: 'Zona de Snacks', emoji: '🍕', description: 'Zona de snacks' },
+  { id: 'biblioteca', name: 'Biblioteca', emoji: '📚', description: 'Biblioteca' }
 ];
 
 const SONGS = [
