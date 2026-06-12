@@ -17,7 +17,7 @@ class GameSolver {
 
   checkUniqueRowColumn() {
     const grid = this.gameState.grid;
-    const size = 5;
+    const size = 6;
 
     for (let row = 0; row < size; row++) {
       const rowValues = [];
