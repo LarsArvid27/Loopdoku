@@ -28,7 +28,7 @@ const CLUES = [
   "🪑 Maluma estaba en un sillón",
   "📚 Beéle estaba en la biblioteca",
   "🌿 Rauw Alejandro estaba al lado de una planta",
-  "🪞 Beyoncé era la única en una alfombra",
+  "👣 Beyoncé era la única en una alfombra",
   "🚪 Carlos Vives estaba en la entrada",
   "🎤 Shakira estaba a solas con su colab"
 ];
