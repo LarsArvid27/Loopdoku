@@ -128,24 +128,24 @@ class GameUI {
     const col = cell.col;
 
     // Check if collaborator already exists in this row
-    for (let c = 0; c < 6; c++) {
-      const checkCell = this.gameState.grid[row * 6 + c];
+    for (let c = 0; c < 5; c++) {
+      const checkCell = this.gameState.grid[row * 5 + c];
       if (checkCell.collaborator === collaborator) {
         return false;
       }
     }
 
     // Check if another collaborator exists in this row
-    for (let c = 0; c < 6; c++) {
-      const checkCell = this.gameState.grid[row * 6 + c];
+    for (let c = 0; c < 5; c++) {
+      const checkCell = this.gameState.grid[row * 5 + c];
       if (checkCell.collaborator && checkCell.collaborator !== collaborator) {
         return false;
       }
     }
 
     // Check if another collaborator exists in this column
-    for (let r = 0; r < 6; r++) {
-      const checkCell = this.gameState.grid[r * 6 + col];
+    for (let r = 0; r < 5; r++) {
+      const checkCell = this.gameState.grid[r * 5 + col];
       if (checkCell.collaborator && checkCell.collaborator !== collaborator) {
         return false;
       }
