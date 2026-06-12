@@ -111,11 +111,11 @@ class GameUI {
         console.log(`Placing ${nextCollab} at cell ${index}`);
         cell.collaborator = nextCollab;
       } else {
-        alert('❌ Invalid placement! A collaborator is already in this row or column.');
+        alert('❌ Solo puede haber un artista por columna o fila');
         return;
       }
     } else {
-      alert('✅ All collaborators placed!');
+      alert('✅ Todos han sido colocados');
       return;
     }
 
@@ -165,7 +165,7 @@ class GameUI {
     if (hint) {
       alert(`💡 Hint: ${hint.message}\nLocation: ${hint.location}\nSong: ${hint.song}`);
     } else {
-      alert('✅ All collaborators are placed!');
+      alert('✅ Todos han sido colocados');
     }
   }
 
