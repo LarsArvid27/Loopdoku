@@ -33,7 +33,13 @@ const CLUES = [
   "🎤 Shakira estaba a solas con su colab"
 ];
 
-const SOLUTION = "Shakira está con Beyoncé";
+const SOLUTION = {
+  maluma: { location: 'snacks', song: 'song1' },
+  beele: { location: 'biblioteca', song: 'song2' },
+  rauw: { location: 'terraza', song: 'song3' },
+  beyonce: { location: 'entrada', song: 'song4' },
+  carlos: { location: 'estudio', song: 'song5' }
+};
 
 const CONSTRAINTS = {
   uniqueRowColumn: true,
