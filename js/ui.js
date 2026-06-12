@@ -87,36 +87,44 @@ class GameUI {
     console.log('Event listeners attached');
   }
 
-  onCellClick(index) {
+onCellClick(index) {
   const cell = this.gameState.grid[index];
 
-  console.log(`Cell ${index} clicked`, cell);
-
   if (cell.isObstacle) {
-    console.log('Cannot place on obstacle');
     return;
   }
 
   const collaboratorIds = COLLABORATORS.map(c => c.id);
 
+  // Get collaborators already placed elsewhere
+  const usedCollaborators = this.gameState.grid
+    .filter((c, i) => i !== index && c.collaborator)
+    .map(c => c.collaborator);
+
+  // Available collaborators for this cell
+  const availableCollaborators = collaboratorIds.filter(
+    id =>
+      !usedCollaborators.includes(id) ||
+      id === cell.collaborator
+  );
+
   let nextCollaborator;
 
-  // Empty cell -> first collaborator
+  // Empty cell -> first available collaborator
   if (!cell.collaborator) {
-    nextCollaborator = collaboratorIds[0];
+    nextCollaborator = availableCollaborators[0] || null;
   } else {
-    const currentIndex = collaboratorIds.indexOf(cell.collaborator);
+    const currentIndex = availableCollaborators.indexOf(cell.collaborator);
 
-    // Last collaborator -> empty
-    if (currentIndex === collaboratorIds.length - 1) {
+    // Last available collaborator -> empty
+    if (currentIndex === availableCollaborators.length - 1) {
       nextCollaborator = null;
     } else {
-      // Next collaborator in list
-      nextCollaborator = collaboratorIds[currentIndex + 1];
+      nextCollaborator = availableCollaborators[currentIndex + 1];
     }
   }
 
-  // Only validate if we're placing a collaborator
+  // Validate row/column rule
   if (
     nextCollaborator &&
     !this.isValidPlacement(index)
@@ -129,7 +137,7 @@ class GameUI {
 
   this.updateDisplay();
 }
-
+  
 isValidPlacement(cellIndex) {
   const cell = this.gameState.grid[cellIndex];
   const row = cell.row;
