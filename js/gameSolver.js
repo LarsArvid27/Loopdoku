@@ -67,7 +67,6 @@ class GameSolver {
     return {
       collaborator: nextCollaborator,
       location: solution.location,
-      song: solution.song,
       message: `${nextCollaborator} should be placed in ${solution.location}`
     };
   }
