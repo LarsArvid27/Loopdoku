@@ -103,7 +103,7 @@ main {
 .cell:hover {
   background: #f0f0f0;
   border-color: var(--secondary-color);
-  transform: scale(1.05);
+  transform: scale(1.0);
 }
 
 .cell.collaborator {
