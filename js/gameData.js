@@ -30,7 +30,6 @@ const CLUES = [
   "🚪 Carlos Vives estaba en la entrada (entrance)"
 ];
 
-// Level 1 Solution: Map collaborator -> {location, song}
 const SOLUTION = {
   maluma: { location: 'snacks', song: 'song1' },
   beele: { location: 'biblioteca', song: 'song2' },
@@ -39,31 +38,8 @@ const SOLUTION = {
   carlos: { location: 'estudio', song: 'song5' }
 };
 
-// Grid constraints and obstacles
-// Index represents position in 5x5 grid (0-24)
-// Based on the puzzle image layout
-const GRID_SETUP = {
-  // Cells with obstacles (plants, shelves, tables, etc.) - cannot place collaborators
-  obstacles: [
-    // Entrada section obstacles
-    { index: 2, type: 'plant', emoji: '🌱' },
-    { index: 3, type: 'decor', emoji: '🎨' },
-    { index: 4, type: 'decor', emoji: '🎨' },
-    // Estudio section obstacles
-    { index: 8, type: 'plant', emoji: '🌱' },
-    { index: 9, type: 'decor', emoji: '🎨' },
-    { index: 11, type: 'shelf', emoji: '📦' },
-    { index: 13, type: 'shelf', emoji: '📦' },
-    { index: 14, type: 'decor', emoji: '🎨' },
-    // Terraza section obstacles
-    { index: 15, type: 'decor', emoji: '🎨' },
-    { index: 16, type: 'decor', emoji: '🎨' },
-    { index: 17, type: 'decor', emoji: '🎨' },
-    { index: 18, type: 'decor', emoji: '🎨' },
-    { index: 19, type: 'decor', emoji: '🎨' },
-    // Zona de Snacks & Biblioteca section obstacles
-    { index: 20, type: 'plant', emoji: '🌱' },
-    { index: 21, type: 'decor', emoji: '🎨' },
-    { index: 22, type: 'plant', emoji: '🌱' },
-    { index: 23, type: 'decor', emoji: '🎨' },
-    { index: 24, type: 'decor', emoji: '🎨' }\n  ]\n};\n\nconst CONSTRAINTS = {\n  // Only one collaborator per row\n  uniqueRows: true,\n  // Only one collaborator per column\n  uniqueColumns: true,\n  // Artists can only be placed in empty squares (no obstacles)\n  artistsOnlyInEmpty: true,\n  // Shakira is alone with only one collaborator\n  shakiraAlone: true\n};\n\nconst GAME_LEVELS = {\n  level1: {\n    title: '¿Qué canción está escribiendo Shakira?',\n    description: 'Ayuda a Shakira a descubrir quién colabora en cada canción y dónde están en el estudio.',\n    difficulty: 'Easy',\n    clues: CLUES,\n    solution: SOLUTION,\n    gridSetup: GRID_SETUP,\n    collaborators: COLLABORATORS,\n    locations: LOCATIONS,\n    songs: SONGS\n  }\n};\n
+const CONSTRAINTS = {
+  uniqueRowColumn: true,
+  artistsOnlyInEmpty: true,
+  shakiraAlone: true
+};
