@@ -5,7 +5,7 @@ class GameState {
 
   initializeGrid() {
     const grid = [];
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 36; i++) {
       grid.push({
         index: i,
         row: Math.floor(i / 6),
