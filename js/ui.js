@@ -88,71 +88,81 @@ class GameUI {
   }
 
   onCellClick(index) {
-    const cell = this.gameState.grid[index];
-    
-    console.log(`Cell ${index} clicked`, cell);
+  const cell = this.gameState.grid[index];
 
-    if (cell.isObstacle) {
-      console.log('Cannot place on obstacle');
-      return;
-    }
+  console.log(`Cell ${index} clicked`, cell);
 
-    // Get unplaced collaborators
-    const unplaced = this.solver.getUnplacedCollaborators();
-    
-    if (cell.collaborator) {
-      // Remove collaborator if already placed
-      console.log(`Removing ${cell.collaborator} from cell ${index}`);
-      cell.collaborator = null;
-    } else if (unplaced.length > 0) {
-      // Validate placement
-      const nextCollab = unplaced[0];
-      if (this.isValidPlacement(index, nextCollab)) {
-        console.log(`Placing ${nextCollab} at cell ${index}`);
-        cell.collaborator = nextCollab;
-      } else {
-        alert('❌ Solo puede haber un artista por columna o fila');
-        return;
-      }
+  if (cell.isObstacle) {
+    console.log('Cannot place on obstacle');
+    return;
+  }
+
+  const collaboratorIds = COLLABORATORS.map(c => c.id);
+
+  let nextCollaborator;
+
+  // Empty cell -> first collaborator
+  if (!cell.collaborator) {
+    nextCollaborator = collaboratorIds[0];
+  } else {
+    const currentIndex = collaboratorIds.indexOf(cell.collaborator);
+
+    // Last collaborator -> empty
+    if (currentIndex === collaboratorIds.length - 1) {
+      nextCollaborator = null;
     } else {
-      alert('✅ Todos han sido colocados');
-      return;
+      // Next collaborator in list
+      nextCollaborator = collaboratorIds[currentIndex + 1];
     }
-
-    this.updateDisplay();
   }
 
-  isValidPlacement(cellIndex, collaborator) {
-    const cell = this.gameState.grid[cellIndex];
-    const row = cell.row;
-    const col = cell.col;
-
-    // Check if collaborator already exists in this row
-    for (let c = 0; c < 6; c++) {
-      const checkCell = this.gameState.grid[row * 6 + c];
-      if (checkCell.collaborator === collaborator) {
-        return false;
-      }
-    }
-
-    // Check if another collaborator exists in this row
-    for (let c = 0; c < 6; c++) {
-      const checkCell = this.gameState.grid[row * 6 + c];
-      if (checkCell.collaborator && checkCell.collaborator !== collaborator) {
-        return false;
-      }
-    }
-
-    // Check if another collaborator exists in this column
-    for (let r = 0; r < 6; r++) {
-      const checkCell = this.gameState.grid[r * 6 + col];
-      if (checkCell.collaborator && checkCell.collaborator !== collaborator) {
-        return false;
-      }
-    }
-
-    return true;
+  // Only validate if we're placing a collaborator
+  if (
+    nextCollaborator &&
+    !this.isValidPlacement(index)
+  ) {
+    alert('❌ Solo puede haber un artista por columna o fila');
+    return;
   }
+
+  cell.collaborator = nextCollaborator;
+
+  this.updateDisplay();
+}
+
+isValidPlacement(cellIndex) {
+  const cell = this.gameState.grid[cellIndex];
+  const row = cell.row;
+  const col = cell.col;
+
+  // Check row
+  for (let c = 0; c < 6; c++) {
+    const idx = row * 6 + c;
+
+    if (idx === cellIndex) continue;
+
+    const checkCell = this.gameState.grid[idx];
+
+    if (checkCell.collaborator) {
+      return false;
+    }
+  }
+
+  // Check column
+  for (let r = 0; r < 6; r++) {
+    const idx = r * 6 + col;
+
+    if (idx === cellIndex) continue;
+
+    const checkCell = this.gameState.grid[idx];
+
+    if (checkCell.collaborator) {
+      return false;
+    }
+  }
+
+  return true;
+}
 
   resetGame() {
     this.gameState.reset();
