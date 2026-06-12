@@ -55,7 +55,7 @@ main {
 
 .game-wrapper {
   display: grid;
-  grid-template-columns: 1fr 200px;
+  grid-template-columns: 1fr 500px;
   gap: 30px;
   align-items: start;
 }
