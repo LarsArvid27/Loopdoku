@@ -34,7 +34,7 @@ const CLUES = [
 ];
 
 const SOLUTION = {
-"Shakira está con Beyoncé"
+ answer: "Shakira está con Beyoncé"
 };
 
 const CONSTRAINTS = {
