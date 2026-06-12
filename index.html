@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loopdoku - Shakira's Collaboration Puzzle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎵 LOOPDOKU</h1>
+      <p>Help Shakira figure out which song she's writing and where each collaborator is!</p>
+    </header>
+
+    <main>
+      <div class="game-wrapper">
+        <!-- Game Grid -->
+        <div class="game-section">
+          <h2>Studio Layout</h2>
+          <div id="gameGrid" class="grid"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-section">
+          <button id="resetBtn" class="btn btn-primary">Reset Game</button>
+          <button id="hintBtn" class="btn btn-secondary">Get Hint</button>
+          <button id="solveBtn" class="btn btn-success">Show Solution</button>
+        </div>
+
+        <!-- Clues Panel -->
+        <div class="clues-section">
+          <h2>Clues</h2>
+          <ul id="cluesList" class="clues-list"></ul>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Made with ♥ for Shakira fans</p>
+    </footer>
+  </div>
+
+  <script src="js/gameData.js"></script>
+  <script src="js/gameSolver.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
