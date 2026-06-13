@@ -212,6 +212,38 @@ footer {
   color: #666;
 }
 
+/* Prevent tap-zoom on the grid and cells */
+.grid {
+  touch-action: manipulation;
+}
+
+.cell {
+  touch-action: manipulation;   /* disables double-tap zoom */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Fix mobile overflow — cells must not grow beyond their column */
+.cell {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  font-size: clamp(0.55em, 2vw, 0.9em);  /* shrinks text on small screens */
+}
+
+/* Tighten the grid on mobile so it fits the screen */
+@media (max-width: 768px) {
+  .grid {
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .cell {
+    font-size: clamp(0.5em, 1.8vw, 0.85em);
+  }
+}
+
 @media (max-width: 768px) {
   .game-wrapper {
     grid-template-columns: 1fr;
