@@ -50,16 +50,28 @@ class GameSolver {
     return placedCollaborators.size === COLLABORATORS.length;
   }
 
-  getHint() {
-    const unplaced = this.getUnplacedCollaborators();
-    if (unplaced.length === 0) return null;
-    const nextCollaborator = unplaced[0];
-    const collab = COLLABORATORS.find(c => c.id === nextCollaborator);
-    return {
-      collaborator: nextCollaborator,
-      message: `${collab ? collab.name : nextCollaborator} aún no ha sido colocado/a`
-    };
-  }
+getHint() {
+  const unplaced = this.getUnplacedCollaborators();
+  if (unplaced.length === 0) return null;
+
+  const hints = {
+    maluma: 'Está en el estudio',
+    beele: 'Está en la cuarta fila',
+    rauw: 'Está en la segunda columna',
+    beyonce: 'Está en la zona de snacks',
+    carlos: 'Está en la primera columna',
+    shakira: 'Sorry, para ella no hay pista'
+  };
+
+  const nextCollaborator = unplaced[0];
+  const collab = COLLABORATORS.find(c => c.id === nextCollaborator);
+  const hintText = hints[nextCollaborator] || 'Sin pista disponible';
+
+  return {
+    collaborator: nextCollaborator,
+    message: `${collab ? collab.name : nextCollaborator}: ${hintText}`
+  };
+}
 
   getUnplacedCollaborators() {
     const grid = this.gameState.grid;
