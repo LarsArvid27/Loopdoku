@@ -219,4 +219,30 @@ showSolution() {
   updateDisplay() {
     this.renderGrid();
   }
+
+checkSolution() {
+  const grid = this.gameState.grid;
+  let allCorrect = true;
+  let allPlaced = true;
+
+  COLLABORATORS.forEach(collab => {
+    const placedCell = grid.find(c => c.collaborator === collab.id);
+    if (!placedCell) {
+      allPlaced = false;
+      return;
+    }
+    if (placedCell.index !== collab.correctCell) {
+      allCorrect = false;
+    }
+  });
+
+  if (!allPlaced) {
+    alert('⚠️ Faltan artistas por colocar');
+  } else if (allCorrect) {
+    alert('🎉 ¡Correcto! ¡Lo lograste!');
+  } else {
+    alert('❌ Algo está mal, sigue intentando');
+  }
+}
+  
 }
