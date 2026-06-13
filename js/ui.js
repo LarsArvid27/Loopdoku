@@ -182,26 +182,18 @@ isValidPlacement(cellIndex) {
     console.log('Game reset');
   }
 
-  showHint() {
-    const hint = this.solver.getHint();
-    if (hint) {
-      alert(`💡 Hint: ${hint.message}\nLocation: ${hint.location}\nSong: ${hint.song}`);
-    } else {
-      alert('✅ Todos han sido colocados');
-    }
+showHint() {
+  const hint = this.solver.getHint();
+  if (hint) {
+    alert(`💡 Pista: ${hint.message}`);
+  } else {
+    alert('✅ Todos han sido colocados');
   }
+}
 
-  showSolution() {
-    const solution = this.solver.getSolution();
-    let solText = 'SOLUTION:\n\n';
-    Object.entries(solution).forEach(([collab, data]) => {
-      const location = LOCATIONS.find(l => l.id === data.location);
-      const song = SONGS.find(s => s.id === data.song);
-      solText += `${collab.toUpperCase()}: ${location.name} (${song.name})\n`;
-    });
-    alert(solText);
-  }
-
+showSolution() {
+  alert(`🔍 Solución:\n\n${SOLUTION}`);
+}
   updateDisplay() {
     this.renderGrid();
   }
