@@ -94,6 +94,11 @@ renderClues() {
     const resetBtn = document.getElementById('resetBtn');
     const hintBtn = document.getElementById('hintBtn');
     const solveBtn = document.getElementById('solveBtn');
+    const checkBtn = document.getElementById('checkBtn');
+    
+if (checkBtn) {
+  checkBtn.addEventListener('click', () => this.checkSolution());
+}
 
     if (resetBtn) {
       resetBtn.addEventListener('click', () => this.resetGame());
