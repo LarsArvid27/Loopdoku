@@ -63,20 +63,37 @@ renderGrid() {
   });
 }
   
-  renderClues() {
-    const cluesList = document.getElementById('cluesList');
-    if (!cluesList) {
-      console.error('Clues list not found!');
-      return;
-    }
-    
-    cluesList.innerHTML = '';
+renderClues() {
+  const cluesList = document.getElementById('cluesList');
+  if (!cluesList) {
+    console.error('Clues list not found!');
+    return;
+  }
 
-    CLUES.forEach(clue => {
-      const li = document.createElement('li');
-      li.textContent = clue;
-      cluesList.appendChild(li);
-    });
+  cluesList.innerHTML = '';
+
+  CLUES.forEach(clue => {
+    const li = document.createElement('li');
+    li.style.display = 'flex';
+    li.style.alignItems = 'center';
+    li.style.gap = '10px';
+
+    const img = document.createElement('img');
+    img.src = clue.image;
+    img.style.width = '40px';
+    img.style.height = '40px';
+    img.style.objectFit = 'cover';
+    img.style.borderRadius = '50%';
+    img.style.flexShrink = '0';
+
+    const span = document.createElement('span');
+    span.textContent = clue.text;
+
+    li.appendChild(img);
+    li.appendChild(span);
+    cluesList.appendChild(li);
+  });
+}
     
     console.log('Clues rendered:', CLUES.length);
   }
