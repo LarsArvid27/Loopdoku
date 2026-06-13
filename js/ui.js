@@ -31,7 +31,7 @@ renderGrid() {
 
     if (cell.isObstacle) {
       cellEl.classList.add('obstacle');
-      cellEl.textContent = cell.obstacle || '🎨';
+      cellEl.textContent = cell.obstacle || '❌';
       cellEl.style.cursor = 'not-allowed';
     } else if (cell.collaborator) {
       cellEl.classList.add('collaborator');
