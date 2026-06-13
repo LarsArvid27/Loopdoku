@@ -57,36 +57,19 @@ class GameSolver {
     return placedCollaborators.size === COLLABORATORS.length;
   }
 
+
   getHint() {
-    const unplaced = this.getUnplacedCollaborators();
-    if (unplaced.length === 0) return null;
+  const unplaced = this.getUnplacedCollaborators();
+  if (unplaced.length === 0) return null;
+  const nextCollaborator = unplaced[0];
+  const collab = COLLABORATORS.find(c => c.id === nextCollaborator);
+  return {
+    collaborator: nextCollaborator,
+    message: `${collab ? collab.name : nextCollaborator} aún no ha sido colocado/a`
+  };
+}
 
-    const nextCollaborator = unplaced[0];
-    const solution = SOLUTION[nextCollaborator];
-
-    return {
-      collaborator: nextCollaborator,
-      location: solution.location,
-      message: `${nextCollaborator} should be placed in ${solution.location}`
-    };
-  }
-
-  getUnplacedCollaborators() {
-    const grid = this.gameState.grid;
-    const placedCollaborators = new Set();
-
-    grid.forEach(cell => {
-      if (cell.collaborator) {
-        placedCollaborators.add(cell.collaborator);
-      }
-    });
-
-    return COLLABORATORS
-      .map(c => c.id)
-      .filter(id => !placedCollaborators.has(id));
-  }
-
-  getSolution() {
-    return SOLUTION;
-  }
+getSolution() {
+  return SOLUTION;
+}
 }
