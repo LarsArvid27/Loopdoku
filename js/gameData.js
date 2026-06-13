@@ -1,10 +1,10 @@
 const COLLABORATORS = [
-  { id: 'maluma', name: 'Maluma', emoji: '🎤', image: 'images/maluma.png' },
-  { id: 'beele', name: 'Beéle', emoji: '🎤', image: 'images/beele.png' },
-  { id: 'rauw', name: 'Rauw Alejandro', emoji: '🎤', image: 'images/rauw.png' },
-  { id: 'beyonce', name: 'Beyoncé', emoji: '👑', image: 'images/beyonce.png' },
-  { id: 'carlos', name: 'Carlos Vives', emoji: '🎸', image: 'images/carlos.png' },
-  { id: 'shakira', name: 'Shakira', emoji: '👩', image: 'images/shakira.png' }
+  { id: 'maluma', name: 'Maluma', emoji: '🎤', image: 'images/maluma.png', correctCell: 11 },
+  { id: 'beele', name: 'Beéle', emoji: '🎤', image: 'images/beele.png', correctCell: 22 },
+  { id: 'rauw', name: 'Rauw Alejandro', emoji: '🎤', image: 'images/rauw.png', correctCell: 13 },
+  { id: 'beyonce', name: 'Beyoncé', emoji: '👑', image: 'images/beyonce.png', correctCell: 27 },
+  { id: 'carlos', name: 'Carlos Vives', emoji: '🎸', image: 'images/carlos.png', correctCell: 0 },
+  { id: 'shakira', name: 'Shakira', emoji: '👩', image: 'images/shakira.png', correctCell: 32 }
 ];
 
 
