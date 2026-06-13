@@ -11,50 +11,52 @@ class GameUI {
     this.attachEventListeners();
     console.log('GameUI initialized');
   }
-
-  renderGrid() {
-    const gridContainer = document.getElementById('gameGrid');
-    if (!gridContainer) {
-      console.error('Grid container not found!');
-      return;
-    }
-    
-    gridContainer.innerHTML = '';
-    gridContainer.className = 'grid';
-
-    const grid = this.gameState.grid;
-
-    grid.forEach((cell, index) => {
-      const cellEl = document.createElement('div');
-      cellEl.className = 'cell';
-      cellEl.dataset.index = index;
-
-      if (cell.isObstacle) {
-        cellEl.classList.add('obstacle');
-        cellEl.textContent = cell.obstacle || '🎨';
-        cellEl.style.cursor = 'not-allowed';
-      } else if (cell.collaborator) {
-        cellEl.classList.add('collaborator');
-        const collab = COLLABORATORS.find(c => c.id === cell.collaborator);
-        cellEl.textContent = collab ? `${collab.emoji} ${collab.name}` : cell.collaborator;
-        cellEl.style.cursor = 'pointer';
-      } else {
-        cellEl.textContent = '';
-        cellEl.style.cursor = 'pointer';
-      }
-
-cellEl.addEventListener('click', (e) => {
-  e.preventDefault();
-  this.onCellClick(index);
-});
-
-cellEl.addEventListener('touchstart', (e) => {
-  e.preventDefault();
-}, { passive: false });
-      gridContainer.appendChild(cellEl);
-    });
+  
+renderGrid() {
+  const gridContainer = document.getElementById('gameGrid');
+  if (!gridContainer) {
+    console.error('Grid container not found!');
+    return;
   }
+  
+  gridContainer.innerHTML = '';
+  gridContainer.className = 'grid';
 
+  const grid = this.gameState.grid;
+
+  grid.forEach((cell, index) => {
+    const cellEl = document.createElement('div');
+    cellEl.className = 'cell';
+    cellEl.dataset.index = index;
+
+    if (cell.isObstacle) {
+      cellEl.classList.add('obstacle');
+      cellEl.textContent = cell.obstacle || '🎨';
+      cellEl.style.cursor = 'not-allowed';
+    } else if (cell.collaborator) {
+      cellEl.classList.add('collaborator');
+      const collab = COLLABORATORS.find(c => c.id === cell.collaborator);
+      cellEl.textContent = collab ? `${collab.emoji} ${collab.name}` : cell.collaborator;
+      cellEl.style.cursor = 'pointer';
+    } else {
+      cellEl.textContent = '';
+      cellEl.style.cursor = 'pointer';
+    }
+
+    cellEl.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      this.onCellClick(index);
+    }, { passive: false });
+
+    cellEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.onCellClick(index);
+    });
+
+    gridContainer.appendChild(cellEl);
+  });
+}
+  
   renderClues() {
     const cluesList = document.getElementById('cluesList');
     if (!cluesList) {
