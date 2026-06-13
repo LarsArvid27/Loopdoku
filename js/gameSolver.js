@@ -63,13 +63,13 @@ getHint() {
     shakira: 'Sorry, para ella no hay pista'
   };
 
-  const nextCollaborator = unplaced[0];
-  const collab = COLLABORATORS.find(c => c.id === nextCollaborator);
-  const hintText = hints[nextCollaborator] || 'Sin pista disponible';
+  const randomId = unplaced[Math.floor(Math.random() * unplaced.length)];
+  const collab = COLLABORATORS.find(c => c.id === randomId);
+  const hintText = hints[randomId] || 'Sin pista disponible';
 
   return {
-    collaborator: nextCollaborator,
-    message: `${collab ? collab.name : nextCollaborator}: ${hintText}`
+    collaborator: randomId,
+    message: `${collab ? collab.name : randomId}: ${hintText}`
   };
 }
 
