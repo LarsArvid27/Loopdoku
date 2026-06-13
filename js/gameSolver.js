@@ -7,18 +7,15 @@ class GameSolver {
     if (!this.checkUniqueRowColumn()) {
       return { valid: false, message: 'Duplicate in row or column' };
     }
-
     if (!this.checkAllClues()) {
       return { valid: false, message: 'Some clues are not satisfied' };
     }
-
     return { valid: true, message: 'Puzzle solved!' };
   }
 
   checkUniqueRowColumn() {
     const grid = this.gameState.grid;
     const size = 6;
-
     for (let row = 0; row < size; row++) {
       const rowValues = [];
       for (let col = 0; col < size; col++) {
@@ -29,7 +26,6 @@ class GameSolver {
         }
       }
     }
-
     for (let col = 0; col < size; col++) {
       const colValues = [];
       for (let row = 0; row < size; row++) {
@@ -40,36 +36,45 @@ class GameSolver {
         }
       }
     }
-
     return true;
   }
 
   checkAllClues() {
     const grid = this.gameState.grid;
     const placedCollaborators = new Set();
-
     grid.forEach(cell => {
       if (cell.collaborator) {
         placedCollaborators.add(cell.collaborator);
       }
     });
-
     return placedCollaborators.size === COLLABORATORS.length;
   }
 
-
   getHint() {
-  const unplaced = this.getUnplacedCollaborators();
-  if (unplaced.length === 0) return null;
-  const nextCollaborator = unplaced[0];
-  const collab = COLLABORATORS.find(c => c.id === nextCollaborator);
-  return {
-    collaborator: nextCollaborator,
-    message: `${collab ? collab.name : nextCollaborator} aún no ha sido colocado/a`
-  };
-}
+    const unplaced = this.getUnplacedCollaborators();
+    if (unplaced.length === 0) return null;
+    const nextCollaborator = unplaced[0];
+    const collab = COLLABORATORS.find(c => c.id === nextCollaborator);
+    return {
+      collaborator: nextCollaborator,
+      message: `${collab ? collab.name : nextCollaborator} aún no ha sido colocado/a`
+    };
+  }
 
-getSolution() {
-  return SOLUTION;
-}
+  getUnplacedCollaborators() {
+    const grid = this.gameState.grid;
+    const placedCollaborators = new Set();
+    grid.forEach(cell => {
+      if (cell.collaborator) {
+        placedCollaborators.add(cell.collaborator);
+      }
+    });
+    return COLLABORATORS
+      .map(c => c.id)
+      .filter(id => !placedCollaborators.has(id));
+  }
+
+  getSolution() {
+    return SOLUTION;
+  }
 }
