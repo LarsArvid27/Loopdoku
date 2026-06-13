@@ -1,12 +1,12 @@
 const COLLABORATORS = [
-  { id: 'maluma', name: 'Maluma', emoji: '🎤' },
-  { id: 'beele', name: 'Beéle', emoji: '🎤' },
-  { id: 'rauw', name: 'Rauw Alejandro', emoji: '🎤' },
-  { id: 'beyonce', name: 'Beyoncé', emoji: '👑' },
-  { id: 'carlos', name: 'Carlos Vives', emoji: '🎸' },
-  { id: 'shakira', name: 'Shakira', emoji: '👩' }
-
+  { id: 'maluma', name: 'Maluma', emoji: '🎤', image: 'images/maluma.png' },
+  { id: 'beele', name: 'Beéle', emoji: '🎤', image: 'images/beele.png' },
+  { id: 'rauw', name: 'Rauw Alejandro', emoji: '🎤', image: 'images/rauw.png' },
+  { id: 'beyonce', name: 'Beyoncé', emoji: '👑', image: 'images/beyonce.png' },
+  { id: 'carlos', name: 'Carlos Vives', emoji: '🎸', image: 'images/carlos.png' },
+  { id: 'shakira', name: 'Shakira', emoji: '👩', image: 'images/shakira.png' }
 ];
+
 
 const LOCATIONS = [
   { id: 'entrada', name: 'Entrada', emoji: '🚪', description: 'Entrada' },
