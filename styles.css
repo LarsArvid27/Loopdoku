@@ -94,7 +94,7 @@ main {
   border-color: var(--secondary-color);
 }
 .cell.collaborator {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: transparent;
   color: white;
   border-color: var(--primary-color);
   font-weight: bold;
