@@ -90,7 +90,7 @@ main {
   text-align: center;
 }
 .cell:hover {
-  background: #f0f0f0;
+  background: #ffffff66;
   border-color: var(--secondary-color);
 }
 .cell.collaborator {
