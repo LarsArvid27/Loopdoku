@@ -4,7 +4,7 @@ class GameState {
   }
 
 initializeGrid() {
-  const obstaclecells = [3, 7, 10, 11, 20, 21, 24, 25, 27, 29, 30];
+  const obstacleCells = [2, 6, 9, 10, 19, 20, 23, 24, 26, 28, 29];
   const grid = [];
   for (let i = 0; i < 36; i++) {
     grid.push({
