@@ -100,9 +100,9 @@ main {
   font-weight: bold;
 }
 .cell.obstacle {
-  background: #e0e0e0;
-  cursor: not-allowed;
-  color: #999;
+  background: transparent;
+  border: none;
+  cursor: default;
 }
 .cell.selected {
   background: var(--accent-color);
