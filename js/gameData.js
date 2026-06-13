@@ -16,14 +16,13 @@ const LOCATIONS = [
   { id: 'biblioteca', name: 'Biblioteca', emoji: '📚', description: 'Biblioteca' }
 ];
 
-
 const CLUES = [
-  "🪑 Maluma estaba en un sillón",
-  "📚 Beéle estaba en la biblioteca",
-  "🌿 Rauw Alejandro estaba al lado de una planta",
-  "👣 Beyoncé era la única en una alfombra",
-  "🚪 Carlos Vives estaba en la entrada",
-  "🎤 Shakira estaba a solas con su colab"
+  { image: 'images/maluma.png', text: 'Maluma estaba en un sillón' },
+  { image: 'images/beele.png', text: 'Beéle estaba en la biblioteca' },
+  { image: 'images/rauw.png', text: 'Rauw Alejandro estaba al lado de una planta' },
+  { image: 'images/beyonce.png', text: 'Beyoncé era la única en una alfombra' },
+  { image: 'images/carlos.png', text: 'Carlos Vives estaba en la entrada' },
+  { image: 'images/shakira.png', text: 'Shakira estaba a solas con su colab' }
 ];
 
 const SOLUTION = "Shakira está con Beyoncé";
