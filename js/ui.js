@@ -33,12 +33,20 @@ renderGrid() {
       cellEl.classList.add('obstacle');
       cellEl.textContent = cell.obstacle || ' ';
       cellEl.style.cursor = 'not-allowed';
-    } else if (cell.collaborator) {
+   } else if (cell.collaborator) {
       cellEl.classList.add('collaborator');
       const collab = COLLABORATORS.find(c => c.id === cell.collaborator);
-      cellEl.textContent = collab ? `${collab.emoji} ${collab.name}` : cell.collaborator;
+      const img = document.createElement('img');
+      img.src = collab ? collab.image : '';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.borderRadius = '4px';
+      cellEl.appendChild(img);
       cellEl.style.cursor = 'pointer';
-    } else {
+    }
+    
+      else {
       cellEl.textContent = '';
       cellEl.style.cursor = 'pointer';
     }
