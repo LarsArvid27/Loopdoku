@@ -3,22 +3,22 @@ class GameState {
     this.grid = this.initializeGrid();
   }
 
-  initializeGrid() {
-    const grid = [];
-    for (let i = 0; i < 36; i++) {
-      grid.push({
-        index: i,
-        row: Math.floor(i / 6),
-        col: i % 6,
-        collaborator: null,
-        location: null,
-        song: null,
-        isObstacle: false,
-        obstacle: null
-      });
-    }
-    return grid;
+initializeGrid() {
+  const obstaclecells = [3, 7, 10, 11, 20, 21, 24, 25, 27, 29, 30];
+  const grid = [];
+  for (let i = 0; i < 36; i++) {
+    grid.push({
+      index: i,
+      row: Math.floor(i / 6),
+      col: i % 6,
+      collaborator: null,
+      location: null,
+      isObstacle: obstacleCells.includes(i),
+      obstacle: null
+    });
   }
+  return grid;
+}
 
   reset() {
     this.grid = this.initializeGrid();
