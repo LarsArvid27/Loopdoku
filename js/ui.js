@@ -43,10 +43,14 @@ class GameUI {
         cellEl.style.cursor = 'pointer';
       }
 
-      cellEl.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.onCellClick(index);
-      });
+cellEl.addEventListener('click', (e) => {
+  e.preventDefault();
+  this.onCellClick(index);
+});
+
+cellEl.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+}, { passive: false });
       gridContainer.appendChild(cellEl);
     });
   }
